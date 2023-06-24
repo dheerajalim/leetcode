@@ -5,6 +5,7 @@ Using Binary Search we will solve this problem
 At any point of time there will always be a peak in an array , as if three numbsrrs
 A, B, C.. atmost the can be same but apart from them someone will be greater than the other
 
+check find-peak-element.py; that handle edge cases adn avoid Binary search in case of edge cases to reduce steps
 '''
 
 
@@ -43,5 +44,6 @@ def find_peak(arr):
 
 
 arr = [1,2,3]
+arr = [1,5,1,2,1]
 
 print(find_peak(arr))
