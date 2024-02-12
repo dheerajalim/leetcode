@@ -92,4 +92,4 @@ def min_time_to_burn(root, target):
 
 root = inserttree()
 
-print(min_time_to_burn(root, 50))
+print(min_time_to_burn(root, 2))
