@@ -28,6 +28,35 @@ def width_bt(root):
 
     return max(hash_map.values())
 
+
+# easier solution
+def width_bt_easier(root):
+    if root is None:
+        return None
+
+    dq = deque()
+    dq.append(root)
+
+    max_width = 0
+    while dq:
+        # taking the current size of the dequeu
+        size = len(dq)
+        # comparing it with the previous max width
+        # each level size will be qual to the size of dequeu at present
+        max_width = max(max_width, size)
+
+        for _ in range(size):
+
+            current_node = dq.popleft()
+
+            if current_node.left:
+                dq.append(current_node.left)
+
+            if current_node.right:
+                dq.append(current_node.right)
+
+    return max_width
+
 root = inserttree()
 
 print(width_bt(root))
