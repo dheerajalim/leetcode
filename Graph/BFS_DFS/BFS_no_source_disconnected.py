@@ -34,3 +34,7 @@ def bfs_disconnected(adj):
     # each vertex which is not visited yet
 
     visited = [False] * len(adj)
+
+    for i in range(len(adj)):
+        if visited[i] is False:
+            bfs(adj, i, visited)
