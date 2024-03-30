@@ -1,6 +1,8 @@
 """
 Find the shortest path between the node and
 its connected edges
+
+Works only in case of 1 unit distance between each node
 """
 from collections import deque
 

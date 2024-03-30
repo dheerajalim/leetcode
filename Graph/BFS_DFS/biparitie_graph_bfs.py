@@ -5,18 +5,21 @@ def bfs(adj, src, color, visited):
     dq = deque()
 
     dq.append(src)
+    # mark the src node as visited with color 0
     visited[src] = color
 
     while dq:
         source = dq.popleft()
-
+        # iterate through all adjacent node of src
         for vertex in adj[source]:
-
+            # if the node is not colored yet, color it in opposite color
+            # compared to src and add it to the queue
             if visited[vertex] == -1:
                 # update color to opposite color
                 visited[vertex] = 1 - visited[source]
                 dq.append(vertex)
-
+            # else if the node is already visited and its color is same as
+            # source color, then this is not a bipartite graph; return False
             elif visited[vertex] == visited[source]:
                 return False
 
@@ -24,11 +27,13 @@ def bfs(adj, src, color, visited):
 
 
 def bipartite_graph(adj):
+    # mark all the nodes color as -1
     visited = [-1] * len(adj)
 
     for i in range(len(adj)):
-
+        # iterate all the node which are not yet colored/not visisted
         if visited[i] == -1:
+            # call bfs on the nodes, pass the src node with color 0
             if not bfs(adj, i, 0, visited):
                 return False
 
